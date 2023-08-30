@@ -5,6 +5,10 @@ const port = 5000;
 
 // ... Khai báo tuyến đường khác (nếu có) ...
 
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+})
+
 app.get('/salary', async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
