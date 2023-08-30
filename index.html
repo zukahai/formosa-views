@@ -1,31 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>API Call Example</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <button id="fetchButton">Fetch Data</button>
-    <pre id="dataContainer"></pre>
+    <head>
+        <title>Formosa's employee salary</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <table class="table table-bordered border-primary">
+              <tbody>
+                <tr>
+                    <th scope="row" colspan="4" class="text-center bg-dark  text-light">aaa</th>
+                  </tr>
+                <tr>
+                  <th scope="row" colspan="2" class="text-center">Số lượng ngày công tháng đó</th>
+                  <td colspan="2" class="text-center"> sss</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">2</th>
+                  <td class="text-center">Jacob</td>
+                  <td class="text-center">Thornton</td>
+                  <td class="text-center">@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">3</th>
+                  <td colspan="2" class="text-center">Larry the Bird</td>
+                  <td class="text-center">@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-    <script>
+        <script>
         $(document).ready(function () {
-            $("#fetchButton").click(function () {
-                var url = "http://localhost:5000/salary";
+                var url = "https://salary-api-af8k.onrender.com/api/salary";
 
                 $.ajax({
                     url: url,
-                    type: "GET",
+                    type: "POST",
                     dataType: "json",
+                    data: {
+                        "id": "VNW0014732",
+                        "year": "2023",
+                        "month": "06"
+                    },
                     success: function (data) {
+                        console.log(data);
                         $("#dataContainer").text(JSON.stringify(data, null, 2));
                     },
                     error: function (error) {
                         console.error("Error:", error);
                     }
                 });
-            });
         });
     </script>
-</body>
+    </body>
 </html>
