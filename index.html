@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Call Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="fetchButton">Fetch Data</button>
+    <pre id="dataContainer"></pre>
+
+    <script>
+        $(document).ready(function () {
+            $("#fetchButton").click(function () {
+                var url = "http://localhost:5000/salary";
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        $("#dataContainer").text(JSON.stringify(data, null, 2));
+                    },
+                    error: function (error) {
+                        console.error("Error:", error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

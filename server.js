@@ -6,6 +6,8 @@ const port = 5000;
 // ... Khai báo tuyến đường khác (nếu có) ...
 
 app.get('/salary', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     try {
         const response = await axios.get('https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s16/VNW0014732vkokv2023-06');
         res.json({
