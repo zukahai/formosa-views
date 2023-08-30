@@ -8,10 +8,22 @@
             rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous">
-    </head>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+        </head>
     <body>
-        <div class="container mt-5">
-            <table class="table table-bordered border-primary">
+        <div class="container mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="row justify-content-center shadow-sm p-3 mb-1 bg-white rounded">
+                <input type="text" class="mx-4  col-5" name="id" id="id" / placeholder="ID employee">
+                <input type="text" class="mx-4 col-5" name="datepicker" id="datepicker" placeholder="month year"/>
+            </div>
+            <table class="table table-bordered border-primary my-2 hidden" id="data">
               <tbody>
                 <tr>
                     <th scope="row" colspan="4" class="text-center bg-dark  text-light">aaa</th>
@@ -34,28 +46,65 @@
               </tbody>
             </table>
           </div>
+          <h1 id="messager" class="text-center text-danger">Vui lòng nhập đủ và đúng thông tin</h1>
 
         <script>
-        $(document).ready(function () {
-                var url = "https://salary-api-af8k.onrender.com/api/salary";
+            var dp=$("#datepicker").datepicker( {
+                format: "mm-yyyy",
+                startView: "months", 
+                minViewMode: "months"
+            });
 
-                $.ajax({
-                    url: url,
-                    type: "POST",
-                    dataType: "json",
-                    data: {
-                        "id": "VNW0014732",
-                        "year": "2023",
-                        "month": "06"
-                    },
-                    success: function (data) {
-                        console.log(data);
-                        $("#dataContainer").text(JSON.stringify(data, null, 2));
-                    },
-                    error: function (error) {
-                        console.error("Error:", error);
-                    }
-                });
+        
+
+        
+
+        $(document).ready(function () {
+            function setData() {
+                let id = $("#id").val();
+                let year = $("#datepicker").val();
+
+                if (id == "" || year == "") {
+                    $("#data").addClass("hidden");
+                    $("#messager").removeClass("hidden");
+                } else {
+                    $("#data").removeClass("hidden");
+                    $("#messager").addClass("hidden");
+                }
+                console.log(id, year);
+            }
+
+            $("#id").change(function() {
+                setData();
+            });
+            $('#id').keydown(function (e) {
+                setData();
+            });
+            $('#id').keyup(function (e) {
+                setData();
+            });
+            $("#datepicker").change(function() {
+                setData();
+            });
+            var url = "https://salary-api-af8k.onrender.com/api/salary";
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "id": "VNW0014732",
+                    "year": "2023",
+                    "month": "06"
+                },
+                success: function (data) {
+                    console.log(data);
+                    $("#dataContainer").text(JSON.stringify(data, null, 2));
+                },
+                error: function (error) {
+                    console.error("Error:", error);
+                }
+            });
         });
     </script>
     </body>
