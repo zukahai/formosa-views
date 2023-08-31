@@ -15,6 +15,9 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.vi.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
             <style>
                 .hidden {
                     display: none;
@@ -231,6 +234,8 @@
             let wbout = XLSX.write(wb, { bookType: "xlsx", type: "array" });
             let blob = new Blob([wbout], { type: "application/octet-stream" });
             saveAs(blob, nameByUserId);
+
+            toastr.success("Đã tải thành công " + nameByUserId, "Thông báo");
         }
         
     </script>
