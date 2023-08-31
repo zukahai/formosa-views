@@ -1,352 +1,187 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Formosa's employee salary</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="./config.js"></script>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-            crossorigin="anonymous">
-            <link rel="icon" type="image/x-icon" href="https://www.fhs.com.vn/favicon.ico">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.vi.min.js"></script>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - menu with awesome hover </title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
 
-        </head>
-    <body>
-        <div class="container-xl mt-5 shadow-lg p-3 mb-5 bg-white rounded ">
-            <div class="row justify-content-center">
-                  <div class="shadow-sm p-3 mb-1 bg-white rounded form-group d-flex">
-                    <input type="text" class="mx-1 form-control" name="id" id="id" placeholder="ID employee">
-                    <input type="text" class="mx-1 form-control" name="datepicker" id="datepicker" placeholder="YY-MM">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main class="site-wrapper">
+  <div class="pt-table desktop-768">
+    <div class="pt-tablecell page-home relative" style="background-image: url(https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+    background-position: center;
+    background-size: cover;">
+                    <div class="overlay"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                                <div class="page-title  home text-center">
+                                  <span class="heading-page"> Welcome to My Page
+                                  </span>
+                                    <p class="mt20">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                </div>
+
+                                <div class="hexagon-menu clear">
+                                    <div class="hexagon-item">
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa fa-universal-access"></i>
+                                                </span>
+                                                <span class="title">Welcome</span>
+                                            </span>
+                                            <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                        </a>
+                                    </div>
+                                    <div class="hexagon-item">
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa fa-bullseye"></i>
+                                                </span>
+                                                <span class="title">About</span>
+                                            </span>
+                                            <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                        </a>
+                                    </div>
+                                    <div class="hexagon-item">
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa fa-braille"></i>
+                                                </span>
+                                                <span class="title">Services</span>
+                                            </span>
+                                            <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                        </a>    
+                                    </div>
+                                    <div class="hexagon-item">
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa fa-id-badge"></i>
+                                                </span>
+                                                <span class="title">Resume</span>
+                                            </span>
+                                            <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                        </a>
+                                    </div>
+                                    <div class="hexagon-item">
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa fa-life-ring"></i>
+                                                </span>
+                                                <span class="title">Works</span>
+                                            </span>
+                                            <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                        </a>
+                                    </div>
+                                    <div class="hexagon-item">
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa fa-clipboard"></i>
+                                                </span>
+                                                <span class="title">Testimonials</span>
+                                            </span>
+                                            <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                        </a>
+                                    </div>
+                                    <div class="hexagon-item">
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="hex-item">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <a  class="hex-content">
+                                            <span class="hex-content-inner">
+                                                <span class="icon">
+                                                    <i class="fa fa-map-signs"></i>
+                                                </span>
+                                                <span class="title">Contact</span>
+                                            </span>
+                                            <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-           <div  class="row justify-content-center">
-            <table class="table table-bordered border-primary my-2 hidden" id="data">
-                <tbody>
-                  <tr>
-                      <th scope="row" colspan="4" class="text-center bg-dark  text-light" id="name-id">aaa</th>
-                    </tr>
-                  <tr>
-                    <th scope="row" colspan="2" class="text-center">Số lượng ngày công tháng đó</th>
-                    <td colspan="2" class="text-center" id="slnctd"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" colspan="2" class="text-center">Điểm đánh giá của chủ quản</th>
-                      <td colspan="2" class="text-center" id="ddgccq"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" colspan="2" class="text-center">Hạng mục</th>
-                      <th scope="row" class="text-center">Tên</th>
-                      <th scope="row" class="text-center">Số tiền</th>
-                  </tr>
-                  <tr>
-                      <th scope="row" rowspan="32" class="text-center">Hạng mục lương</th>
-                      <th scope="row" rowspan="21" class="text-center">Hạng mục phải nộp thuế</th>
-                      <th scope="row" class="text-center">Lương cơ bản</th>
-                      <td class="text-center" id="lcb"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Tiền thưởng năng suất</th>
-                      <td class="text-center" id="ttns"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Tiền thưởng đi làm ngày tết</th>
-                      <td class="text-center" id="ttdlnt"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Trợ cấp tiền cơm phải nộp</th>
-                      <td class="text-center" id="tctcpn"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Trợ cấp tiền KTX, điện nước, đi lại</th>
-                      <td class="text-center" id="tctktx"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Tiền thưởng chuyên cần</th>
-                      <td class="text-center" id="ttcc"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp trực ban</th>
-                      <td class="text-center" id="pctb"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp ngôn ngữ</th>
-                      <td class="text-center" id="pcnn"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp đặc biệt</th>
-                      <td class="text-center" id="pcdb"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp chuyên ngành</th>
-                      <td class="text-center" id="pccn"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp tác nghiệp</th>
-                      <td class="text-center" id="pctacng"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp Khu vực</th>
-                      <td class="text-center" id="pckvuc"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp tăng ca đột xuất phải nộp thuế</th>
-                      <td class="text-center" id="pctcdxpnt"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp làm thêm giờ ngày nghỉ có tính thuế</th>
-                      <td class="text-center" id="pcltgnnctt"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp tăng ca khẩn cấp phải nộp thuế</th>
-                      <td class="text-center" id="pctckcpnt"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp chức vụ chủ quản</th>
-                      <td class="text-center" id="pccvcq"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Trợ cấp tiền phòng</th>
-                      <td class="text-center" id="tctphong"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phát bù</th>
-                      <td class="text-center" id="phatbu"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Tiền thưởng công việc</th>
-                      <td class="text-center" id="ttcviec"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phí khác</th>
-                      <td class="text-center" id="phikhac"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Cộng</th>
-                      <td class="text-center" id="cong"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" rowspan="10" class="text-center">Hạng mục miễn thuế</th>
-                      <th scope="row" class="text-center">Tiền đồng phục</th>
-                      <td class="text-center" id="tiendongphuc"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Trợ cấp tiền cơm được miễn thuế</th>
-                      <td class="text-center" id="tctcdmt"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Trợ cấp diện thoại</th>
-                      <td class="text-center" id="tcdienthoai"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Tiền trợ cấp nghỉ việc</th>
-                      <td class="text-center" id="ttcnghiviec"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp tăng ca ngày lẽ</th>
-                      <td class="text-center" id="pctcnle"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp đi ca</th>
-                      <td class="text-center" id="pcdica"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp tăng ca đột xuất được miễn thuế</th>
-                      <td class="text-center" id="pctcdxdmienthue"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp làm thêm cho những ngày nghỉ miễn thuế</th>
-                      <td class="text-center" id="pcltcnnnmt"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp tăng ca khẩn cấp được miễn thuế</th>
-                      <td class="text-center" id="pctckcduocmienthue"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phụ cấp tăng ca vào ban đêm</th>
-                      <td class="text-center" id="pctcvaobandem"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" rowspan="1" colspan="2" class="text-center">Tổng số tiền phát</th>
-                      <td class="text-center" id="tongsotienphat"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" rowspan="10" class="text-center">Hạng mục khấu trừ</th>
-                      <th scope="row" rowspan="4" class="text-center">Có thể khấu trừ thuế</th>
-                      <th scope="row" class="text-center">Phí bảo hiểm xã hội</th>
-                      <td class="text-center" id="pbhxh"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phí bảo hiểm thất nghiệp</th>
-                      <td class="text-center" id="phibaohiemthatnghiep"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phí bảo hiểm y tế</th>
-                      <td class="text-center" id="phibaohiemyt"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phí KTX, đi lại</th>
-                      <td class="text-center" id="phiktxdl"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" rowspan="6" class="text-center">Không thể khấu trừ thuế</th>
-                      <th scope="row" class="text-center">Tiền cơm</th>
-                      <td class="text-center" id="tiencom"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phí đồng phục</th>
-                      <td class="text-center" id="phidongphuc"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Phí công đoàn</th>
-                      <td class="text-center" id="phicongdoan"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Khoản trừ khác</th>
-                      <td class="text-center" id="khoantrukhac"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Trừ tiền nghỉ phép</th>
-                      <td class="text-center" id="trutiennghiphep"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" class="text-center">Thuế thu nhập</th>
-                      <td class="text-center" id="thuethunhap"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" colspan="3" class="text-center">Tiền phát thực tế</th>
-                      <td class="text-center" id="tienphatthucte"> </td>
-                  </tr>
-                  <tr>
-                      <th scope="row" colspan="3" class="text-center">Nhận xết</th>
-                      <td class="text-center" id="nhanxet"> </td>
-                  </tr>
-                </tbody>
-              </table>
-           </div>
-            <p id="messager" class="text-center text-danger mt-4">Vui lòng nhập đủ và đúng thông tin</p>
-          </div>
-
-        <script>
-            var dp = $("#datepicker").datepicker( {
-                format: "mm-yyyy",
-                startView: "months", 
-                minViewMode: "months",
-                language: "vi"
-            });
-
-        
-
-        
-
-        $(document).ready(function () {
-            function setData() {
-                let id = $("#id").val();
-                let year = $("#datepicker").val();
-
-                if (id !== "" && year !== "") {
-                    $("#name-id").text(id);
-                    let link = "https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s16/" + id + "vkokv" + year.split("-")[1] + "-" + year.split("-")[0];
-
-                    $.ajax({
-                        url: CONFIG.path_api,
-                        type: "POST",
-                        dataType: "json",
-                        data: {
-                            "link": link
-                        },
-                        success: function (data) {
-                            if (data.length <= 10) {
-                                $("#data").addClass("hidden");
-                                $("#messager").removeClass("hidden");
-                                return;
-                            }
-                            $("#data").removeClass("hidden");
-                            $("#messager").addClass("hidden");
-                            data = (data.split("o|o")[0]).split("|");
-                            $("#slnctd").text(data[0]);
-                            $("#ddgccq").text(data[1]);
-                            $("#lcb").text(data[44]);
-                            $("#ttns").text(data[3]);
-                            $("#ttdlnt").text(data[3]);
-                            $("#tctcpn").text(data[4]);
-                            $("#tctktx").text(data[5]);
-                            $("#ttcc").text(data[6]);
-                            $("#pctb").text(data[7]);
-                            $("#pcnn").text(data[8]);
-                            $("#pcdb").text(data[9]);
-                            $("#pccn").text(data[10]);
-                            $("#pctacng").text(data[11]);
-                            $("#pckvuc").text(data[12]);
-                            $("#pctcdxpnt").text(data[13]);
-                            $("#pcltgnnctt").text(data[14]);
-                            $("#pctckcpnt").text(data[15]);
-                            $("#pccvcq").text(data[16]);
-                            $("#tctphong").text(data[17]);
-                            $("#phatbu").text(data[18]);
-                            $("#ttcviec").text(data[19]);
-                            $("#phikhac").text(data[20]);
-                            $("#cong").text(data[21]);
-                            $("#tiendongphuc").text(data[22]);
-                            $("#tctcdmt").text(data[23]);
-                            $("#tcdienthoai").text(data[24]);
-                            $("#ttcnghiviec").text(data[25]);
-                            $("#pctcnle").text(data[26]);
-                            $("#pcdica").text(data[27]);
-                            $("#pctcdxdmienthue").text(data[28]);
-                            $("#pcltcnnnmt").text(data[29]);
-                            $("#pctckcduocmienthue").text(data[30]);
-                            $("#pctcvaobandem").text(data[31]);
-                            $("#tongsotienphat").text(data[32]);
-                            $("#pbhxh").text(data[33]);
-                            $("#phibaohiemthatnghiep").text(data[34]);
-                            $("#phibaohiemyt").text(data[35]);
-                            $("#phiktxdl").text(data[36]);
-                            $("#tiencom").text(data[37]);
-                            $("#phidongphuc").text(data[38]);
-                            $("#phicongdoan").text(data[39]);
-                            $("#khoantrukhac").text(data[40]);
-                            $("#trutiennghiphep").text(data[41]);
-                            $("#thuethunhap").text(data[42]);
-                            $("#tienphatthucte").text(data[43]);
-                            $("#nhanxet").text(data[45]);
-                            
-                        },
-                        error: function (error) {
-                            console.error("Error:", error);
-                        }
-                    });
-                }
-                console.log(id, year);
-            }
-
-            $("#id").change(function() {
-                setData();
-            });
-            $('#id').keyup(function (e) {
-                setData();
-            });
-            $('#id').keydown(function (e) {
-                setData();
-            });
-            $('#id').mousedown(function (e) {
-                setData();
-            });
-            $("#datepicker").change(function() {
-                setData();
-            });
-           
-        });
-
-        
-    </script>
-    </body>
+            </div>
+  </main>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script>
+</body>
 </html>
