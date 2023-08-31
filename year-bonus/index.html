@@ -104,7 +104,12 @@
                 </tbody>
               </table>
            </div>
-            <p id="messager" class="text-center text-danger mt-4">Vui lòng nhập đủ và đúng thông tin</p>
+           <p id="messager" class="text-center text-danger mt-4 hidden">Dữ liệu hiện tại không đúng</p>
+           <div class="image-container">
+               <img src="../images/load.gif" alt="loading" id="loading" class="hidden">
+               <h3 id="loading-text" class="hidden">Loading...</h3>
+           </div>
+         </div>
           </div>
 
         <script>
@@ -154,6 +159,11 @@
                         $("#name-id").text(id + " - " + year);
                         let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s19/${id}vkokvbefvkokv${year}`;
 
+                        $("#loading").removeClass("hidden");
+                        $("#loading-text").removeClass("hidden");
+                        $("#messager").addClass("hidden");
+                        $("#data").addClass("hidden");
+
                         $.ajax({
                             url: CONFIG.path_api,
                             type: "POST",
@@ -162,6 +172,9 @@
                                 "link": link
                             },
                             success: function (data) {
+                                $("#loading").addClass("hidden");
+                                $("#loading-text").addClass("hidden");
+
                                 if (data.length <= 1) {
                                     $("#data").addClass("hidden");
                                     $("#messager").removeClass("hidden");
@@ -202,11 +215,13 @@
                                             data = (data.split("o|o")[0]).split("|");
                                             $("#tpntst").text(data[data.length - 1]);
                                         }
-                                        
-                                        
                                     },
                                     error: function (error) {
-                                        console.log("Error:", error);
+                                         console.error("Error:", error);
+                                        $("#data").addClass("hidden");
+                                        $("#messager").removeClass("hidden");
+                                        $("#loading").addClass("hidden");
+                                        $("#loading-text").addClass("hidden");
                                     }
                         });
                                 
