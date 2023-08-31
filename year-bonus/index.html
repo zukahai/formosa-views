@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Formosa | Quarterly Bonus</title>
+        <title>Formosa | Year Bonus</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../config.js"></script>
         <link
@@ -28,7 +28,7 @@
             </style>
 
         </head>
-    <body class="bg-dark text-light"  onclick="setData()">
+    <body class="bg-dark text-light">
         <div class="container-xl mt-5 shadow-lg p-3 mb-5  box-shadow ">
             <div class="row justify-content-center">
                   <div class="shadow-sm p-3 mb-1  rounded form-group d-flex">
@@ -36,68 +36,66 @@
                     <select class="form-control bg-dark text-light mx-1" aria-label="Year" id="year">
                         
                     </select>
-                    <select class="form-control bg-dark text-light mx-1" aria-label="Quarterly" id="quarter">
-                        <option value="4">Quarterly 4</option>
-                        <option value="3">Quarterly 3</option>
-                        <option value="2">Quarterly 2</option>
-                        <option value="1" selected>Quarterly 1</option>
-                    </select>
                 </div>
               </div>
            <div  class="row justify-content-center">
             <table class="table table-bordered border-primary my-2 hidden bg-dark text-light" id="data">
                 <tbody>
                   <tr class="bg-secondary">
-                      <th scope="row" colspan="6" class="text-center bg-dark  text-light" id="name-id"></th>
+                      <th scope="row" colspan="3" class="text-center bg-dark  text-light" id="name-id"></th>
                 </tr>
                 <tr>
-                    <th scope="row" rowspan="4" style="vertical-align : middle;text-align:center;" class="text-center">Chủ quản đánh giá</th>
-                    <th scope="row" class="text-center">Tháng đầu tiên</th>
-                    <td class="text-center" id="dgt1"> </td>
-                    <th scope="row" rowspan="4" class="text-center" style="vertical-align : middle;text-align:center;">Tỉ lệ sản xuất tiêu thụ đạt được</th>
-                    <th scope="row" class="text-center">Tháng đầu tiên</th>
-                    <td class="text-center" id="tlsx1"> </td>
+                    <th scope="row" colspan="2" style="vertical-align : middle;text-align:center;" class="text-center">Mã nhân viên</th>
+                    <td class="text-center" id="mnv"> </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="text-center">Tháng thứ hai</th>
-                    <td class="text-center" id="dgt2"> </td>
-                    <th scope="row" class="text-center">Tháng thứ hai</th>
-                    <td class="text-center" id="tlsx2"> </td>
+                    <th scope="row" colspan="2" class="text-center">Tiền lương cơ bản</th>
+                    <td class="text-center" id="tlcb"> </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="text-center">Tháng thứ ba</th>
-                    <td class="text-center" id="dgt3"> </td>
-                    <th scope="row" class="text-center">Tháng thứ ba</th>
-                    <td class="text-center" id="tlsx3"> </td>
+                    <th scope="row" colspan="2" class="text-center" >Số tháng đi làm thực tế trong năm</th>
+                    <td class="text-center" id="stdltbtn"> </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="text-center">Trung bình</th>
-                    <td class="text-center" id="dgtb"> </td>
-                    <th scope="row" class="text-center">Trung bình</th>
-                    <td class="text-center" id="tlsxtb"> </td>
+                    <th scope="row" rowspan="2" style="vertical-align : middle;text-align:center;" class="text-center">Thành tích</th>
+                    <th scope="row" class="text-center" >Cấp bậc</th>
+                    <td class="text-center" id="capbac"> </td>
                 </tr>
                 <tr>
-                    <th scope="row" rowspan="2" class="text-center" style="vertical-align : middle;text-align:center;">Thâm niên chức vụ</th>
-                    <th scope="row" class="text-center">Thâm niên</th>
-                    <td class="text-center" id="thamniem"> </td>
-                    <th scope="row" rowspan="4" class="text-center" style="vertical-align : middle;text-align:center;">Vị trí công việc đặc thù</th>
-                    <th scope="row" class="text-center">Chức danh công việc</th>
-                    <td class="text-center" id="cdcongviec"> </td>
+                    <th scope="row"  class="text-center">Tỉ lệ</th>
+                    <td class="text-center" id="tile"> </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="text-center">Bình quân tỉ lệ thường</th>
-                    <td class="text-center" id="tnbqtlt"> </td>
-                    <th scope="row" class="text-center">Bình quân tỉ lệ thường</th>
-                    <td class="text-center" id="cdcvbqtlt"> </td>
+                    <th scope="row" rowspan="2" style="vertical-align : middle;text-align:center;" class="text-center">Khen thưởng trong năm</th>
+                    <th scope="row"  class="text-center">Số ngày</th>
+                    <td class="text-center" id="ktsongay"> </td>
                 </tr>
                 <tr>
-                    <th scope="row" colspan="3" class="text-center">Tỉ lệ nhân viên tại chức trong quý</th>
-                    <td class="text-center" colspan="3" id="tlnvtctq"> </td>
+                    <th scope="row"  class="text-center">Số tiền</th>
+                    <td class="text-center" id="ktsotien"> </td>
                 </tr>
                 <tr>
-                    <th scope="row" colspan="3" class="text-center">Tổng tiền thưởng cần nộp thuế</th>
-                    <td class="text-center" colspan="3" id="tttcnt"> </td>
+                    <th scope="row" rowspan="2" style="vertical-align : middle;text-align:center;" class="text-center">Xử phạt trong năm</th>
+                    <th scope="row"  class="text-center">Số ngày</th>
+                    <td class="text-center" id="xpsongay"> </td>
                 </tr>
+                <tr>
+                    <th scope="row"  class="text-center">Số tiền</th>
+                    <td class="text-center" id="xpsotien"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="2"  class="text-center">Số tiền thưởng</th>
+                    <td class="text-center" id="stienthuong"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="2"  class="text-center">Thưởng phải nộp thuế (Trước tết)</th>
+                    <td class="text-center" id="tpnttt"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="2"  class="text-center">Thưởng phải nộp thuế (Sau tết)</th>
+                    <td class="text-center" id="tpntst"> </td>
+                </tr>
+                
                   
                 </tbody>
               </table>
@@ -119,7 +117,7 @@
 
         $(document).ready(function () {
 
-            for (let i = new Date().getFullYear(); i >= 1900 ; i--) {
+            for (let i = new Date().getFullYear() - 1; i >= 1900 ; i--) {
                 $("#year").append(`<option value="${i}">${i}</option>`);
             }
 
@@ -142,19 +140,15 @@
             $('#year').change(function (e) {
                 setData();
             });
-            $('#quarter').change(function (e) {
-                setData();
-            });
 
             function setData() {
                     let id = $("#userId").val();
                     let year = $("#year").val();
-                    let quarter = $("#quarter").val();
 
 
                     if (id !== "") {
-                        $("#name-id").text(id + " Quarterly " + quarter + " - " + year);
-                        let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s24/${id}vkokv${year}vkokvqr${quarter}`;
+                        $("#name-id").text(id + " - " + year);
+                        let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s19/${id}vkokvbefvkokv${year}`;
 
                         $.ajax({
                             url: CONFIG.path_api,
@@ -164,7 +158,6 @@
                                 "link": link
                             },
                             success: function (data) {
-                                console.log(data);
                                 if (data.length <= 1) {
                                     $("#data").addClass("hidden");
                                     $("#messager").removeClass("hidden");
@@ -175,22 +168,43 @@
                                 data = (data.split("o|o")[0]).split("|");
                                 console.log(data);
 
-                                $("#dgt1").text(data[0]);
-                                $("#tlsx1").text(data[4]);
-                                $("#dgt2").text(data[1]);
-                                $("#tlsx2").text(data[5]);
-                                $("#dgt3").text(data[2]);
-                                $("#tlsx3").text(data[6]);
-                                $("#dgtb").text(data[3]);
-                                $("#tlsxtb").text(data[7]);
-                                $("#thamniem").text(data[8]);
-                                $("#cdcongviec").text(data[10]);
-                                $("#tnbqtlt").text(data[9]);
-                                $("#cdcvbqtlt").text(data[11]);
-                                $("#tlnvtctq").text(data[12]);
-                                $("#tttcnt").text(data[13]);
+                                $("#mnv").text(data[0]);
+                                $("#tlcb").text(data[1]);
+                                $("#stdltbtn").text(data[2]);
+                                $("#capbac").text(data[3]);
+                                $("#tile").text(data[4]);
+                                $("#ktsongay").text(data[5]);
+                                $("#ktsotien").text(data[6]);
+                                $("#xpsongay").text(data[7]);
+                                $("#xpsotien").text(data[8]);
+                                $("#stienthuong").text(data[9]);
+                                $("#tpnttt").text(data[10]);
 
                                 localStorage.setItem("userId", id);
+
+                                let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s19/${id}vkokvaftvkokv${year}`;
+                                $.ajax({
+                                    url: CONFIG.path_api,
+                                    type: "POST",
+                                    dataType: "json",
+                                    data: {
+                                        "link": link
+                                    },
+                                    success: function (data) {
+                                        if (data.length <= 1) {
+                                            $("#tpntst").text("");
+                                            return;
+                                        } else {
+                                            data = (data.split("o|o")[0]).split("|");
+                                            $("#tpntst").text(data[data.length - 1]);
+                                        }
+                                        
+                                        
+                                    },
+                                    error: function (error) {
+                                        console.log("Error:", error);
+                                    }
+                        });
                                 
                             },
                             error: function (error) {
