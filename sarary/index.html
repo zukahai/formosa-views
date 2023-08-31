@@ -21,14 +21,17 @@
             background-color: #222;
             box-shadow: 0 0.5rem 1rem rgba(131, 24, 24, 0.5);
         }
-        /* #datepicker{
-            background-color: #222 !important;
-            color:aliceblue !important;
-        } */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Chiều cao của màn hình */
+            flex-direction: column;
+        }
     </style>
 
         </head>
-    <body class="bg-dark text-light" onload="setData();">
+    <body class="bg-dark text-light">
         <div class="container-xl mt-5 shadow-lg p-3 mb-5  box-shadow ">
             <div class="row justify-content-center">
                   <div class="shadow-sm p-3 mb-1  rounded form-group d-flex">
@@ -240,7 +243,11 @@
                 </tbody>
               </table>
            </div>
-            <p id="messager" class="text-center text-danger mt-4">Vui lòng nhập đủ và đúng thông tin</p>
+            <p id="messager" class="text-center text-danger mt-4 hidden">Dữ liệu hiện tại không đúng</p>
+            <div class="image-container">
+                <img src="../images/load.gif" alt="loading" id="loading" class="hidden">
+                <h3 id="loading-text" class="hidden">Loading...</h3>
+            </div>
           </div>
 
         <script>
@@ -256,8 +263,10 @@
         
 
         $(document).ready(function () {
+
             let localStorage_userId = localStorage.getItem("userId");
             $("#userId").val(localStorage_userId);
+            setData();
             function setData() {
                 let id = $("#userId").val();
                 let year = $("#datepicker").val();
@@ -265,7 +274,8 @@
                 if (id !== "" && year !== "") {
                     $("#name-id").text(id);
                     let link = "https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s16/" + id + "vkokv" + year.split("-")[1] + "-" + year.split("-")[0];
-
+                    $("#loading").removeClass("hidden");
+                    $("#loading-text").removeClass("hidden");
                     $.ajax({
                         url: CONFIG.path_api,
                         type: "POST",
@@ -274,6 +284,9 @@
                             "link": link
                         },
                         success: function (data) {
+                            $("#loading").addClass("hidden");
+                            $("#loading-text").addClass("hidden");
+                            
                             if (data.length <= 10) {
                                 $("#data").addClass("hidden");
                                 $("#messager").removeClass("hidden");
@@ -329,13 +342,24 @@
                             $("#tienphatthucte").text(data[43]);
                             $("#nhanxet").text(data[45]);
                             localStorage.setItem("userId", id);
+
                         },
                         error: function (error) {
                             console.error("Error:", error);
-                        }
+                            $("#data").addClass("hidden");
+                            $("#messager").removeClass("hidden");
+                            $("#loading").removeClass("hidden");
+                            $("#loading-text").removeClass("hidden");
+                        },
+                        
                     });
+                } else {
+                    $("#data").addClass("hidden");
+                    $("#messager").removeClass("hidden");
+                    $("#loading").addClass("hidden");
+                    $("#loading-text").addClass("hidden");
+
                 }
-                console.log(id, year);
             }
 
             $("#userId").change(function() {
