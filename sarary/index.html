@@ -28,11 +28,11 @@
     </style>
 
         </head>
-    <body class="bg-dark text-light">
+    <body class="bg-dark text-light" onload="setData();">
         <div class="container-xl mt-5 shadow-lg p-3 mb-5  box-shadow ">
             <div class="row justify-content-center">
                   <div class="shadow-sm p-3 mb-1  rounded form-group d-flex">
-                    <input type="text" class="mx-1 form-control bg-dark text-light" name="id" id="id" placeholder="ID employee">
+                    <input type="text" class="mx-1 form-control bg-dark text-light" name="id" id="userId" placeholder="ID employee">
                     <input type="text" class="mx-1 form-control bg-dark text-light" name="datepicker" id="datepicker" placeholder="YY-MM">
                 </div>
               </div>
@@ -40,7 +40,7 @@
             <table class="table table-bordered border-primary my-2 hidden bg-dark text-light" id="data">
                 <tbody>
                   <tr>
-                      <th scope="row" colspan="4" class="text-center bg-dark  text-light" id="name-id">aaa</th>
+                      <th scope="row" colspan="4" class="text-center bg-dark  text-light" id="name-id"></th>
                     </tr>
                   <tr>
                     <th scope="row" colspan="2" class="text-center">Số lượng ngày công tháng đó</th>
@@ -256,8 +256,10 @@
         
 
         $(document).ready(function () {
+            let localStorage_userId = localStorage.getItem("userId");
+            $("#userId").val(localStorage_userId);
             function setData() {
-                let id = $("#id").val();
+                let id = $("#userId").val();
                 let year = $("#datepicker").val();
 
                 if (id !== "" && year !== "") {
@@ -326,7 +328,7 @@
                             $("#thuethunhap").text(data[42]);
                             $("#tienphatthucte").text(data[43]);
                             $("#nhanxet").text(data[45]);
-                            
+                            localStorage.setItem("userId", id);
                         },
                         error: function (error) {
                             console.error("Error:", error);
@@ -336,16 +338,16 @@
                 console.log(id, year);
             }
 
-            $("#id").change(function() {
+            $("#userId").change(function() {
                 setData();
             });
-            $('#id').keyup(function (e) {
+            $('#userId').keyup(function (e) {
                 setData();
             });
-            $('#id').keydown(function (e) {
+            $('#userId').keydown(function (e) {
                 setData();
             });
-            $('#id').mousedown(function (e) {
+            $('#userId').mousedown(function (e) {
                 setData();
             });
             $("#datepicker").change(function() {

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formosa | Profile</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../config.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+            <link rel="icon" type="image/x-icon" href="https://www.fhs.com.vn/favicon.ico">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.vi.min.js"></script>
+            <style>
+                .hidden {
+                    display: none;
+                }
+                .shadow-bg-dark {
+                    background-color: #222;
+                    box-shadow: 0 0.5rem 1rem rgba(131, 24, 24, 0.5);
+                }
+                /* #datepicker{
+                    background-color: #222 !important;
+                    color:aliceblue !important;
+                } */
+            </style>
+
+        </head>
+    <body class="bg-dark text-light"  onclick="setData()">
+        <div class="container-xl mt-5 shadow-lg p-3 mb-5  box-shadow ">
+            <div class="row justify-content-center">
+                  <div class="shadow-sm p-3 mb-1  rounded form-group d-flex">
+                    <input type="text" class="mx-1 form-control bg-dark text-light" name="userId" id="userId" placeholder="ID employee">
+                </div>
+              </div>
+           <div  class="row justify-content-center">
+            <table class="table table-bordered border-primary my-2 hidden bg-dark text-light" id="data">
+                <tbody>
+                  <tr>
+                      <th scope="row" colspan="2" class="text-center bg-dark  text-light" id="name-id"></th>
+                </tr>
+                <tr class="bg-secondary">
+                    <th scope="row" class="text-center">Họ tên tiếng Trung</th>
+                    <td class="text-center" id="htttrung"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Họ tên tiếng Anh</th>
+                    <td class="text-center" id="httanh"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày tháng năm sinh</th>
+                    <td class="text-center" id="ntnsinh"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày vàp công ty</th>
+                    <td class="text-center" id="nccty"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Tên bộ phận</th>
+                    <td class="text-center" id="tenbophan"> </td>
+                </tr>
+                <tr class="bg-secondary">
+                    <th scope="row" class="text-center">Tên chức vụ</th>
+                    <td class="text-center" id="tenchucvu"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày hiệu lực của chức vụ hiện tại</th>
+                    <td class="text-center" id="nhlccvht"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Chức vụ</th>
+                    <td class="text-center" id="chucvu"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày bắt đầu</th>
+                    <td class="text-center" id="ngaybatdau"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Cấp bậc chức vụ</th>
+                    <td class="text-center" id="cbcv"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày bắt đầu</th>
+                    <td class="text-center" id="ngaybatdau2"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Thang bậc lương</th>
+                    <td class="text-center" id="thangbacluong"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày bắt đầu</th>
+                    <td class="text-center" id="ngaybatdau3"> </td>
+                </tr>
+                <tr class="bg-secondary">
+                    <th scope="row" class="text-center">Lương cơ bản</th>
+                    <td class="text-center" id="luongcoban"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày hiệu lực</th>
+                    <td class="text-center" id="ngayhieuluc"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ngày bắt đầu hợp đồng lao động</th>
+                    <td class="text-center" id="nbdhdld"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Đến ngày</th>
+                    <td class="text-center" id="denngay"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Địa chỉ liên lạc</th>
+                    <td class="text-center" id="diachill"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Địa chỉ thường trú</th>
+                    <td class="text-center" id="dcthuongtru"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Số điện thoại liên lạc 1</th>
+                    <td class="text-center" id="sdtll1"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Số điện thoại liên lạc 2</th>
+                    <td class="text-center" id="sdtll2"> </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Tên vợ/chồng</th>
+                    <td class="text-center" id="tenvochong"> </td>
+                </tr>
+                  
+                </tbody>
+              </table>
+           </div>
+            <p id="messager" class="text-center text-danger mt-4">Vui lòng nhập đủ và đúng thông tin</p>
+          </div>
+
+        <script>
+            var dp = $("#datepicker").datepicker( {
+                format: "mm-yyyy",
+                startView: "months", 
+                minViewMode: "months",
+                language: "vi"
+            });
+
+        
+
+        
+
+        $(document).ready(function () {
+            let localStorage_userId = localStorage.getItem("userId");
+            $("#userId").val(localStorage_userId);
+            setData();
+            $("#userId").change(function() {
+                setData();
+            });
+            $('#userId').keyup(function (e) {
+                setData();
+            });
+            $('#userId').keydown(function (e) {
+                setData();
+            });
+            $('#userId').mousedown(function (e) {
+                setData();
+            });
+
+            function setData() {
+                    let id = $("#userId").val();
+
+                    if (id !== "") {
+                        $("#name-id").text(id);
+                        let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s10/${id}`;
+
+                        $.ajax({
+                            url: CONFIG.path_api,
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                "link": link
+                            },
+                            success: function (data) {
+                                if (data.length <= 1) {
+                                    $("#data").addClass("hidden");
+                                    $("#messager").removeClass("hidden");
+                                    return;
+                                }
+                                $("#data").removeClass("hidden");
+                                $("#messager").addClass("hidden");
+                                data = (data.split("o|o")[0]).split("|");
+                                console.log(data);
+
+                                $("#htttrung").text(data[0]);
+                                $("#httanh").text(data[1]);
+                                $("#ntnsinh").text(data[2]);
+                                $("#nccty").text(data[3]);
+                                $("#tenbophan").text(data[4]);
+                                $("#tenchucvu").text(data[5]);
+                                $("#nhlccvht").text(data[6]);
+                                $("#chucvu").text(data[7]);
+                                $("#ngaybatdau").text(data[8]);
+                                $("#cbcv").text(data[9]);
+                                $("#ngaybatdau2").text(data[10]);
+                                $("#thangbacluong").text(data[11]);
+                                $("#ngaybatdau3").text(data[12]);
+                                $("#luongcoban").text(data[13]);
+                                $("#ngayhieuluc").text(data[14]);
+                                $("#nbdhdld").text(data[15]);
+                                $("#denngay").text(data[16]);
+                                $("#diachill").text(data[17]);
+                                $("#dcthuongtru").text(data[18]);
+                                $("#sdtll1").text(data[19]);
+                                $("#sdtll2").text(data[20]);
+                                $("#tenvochong").text(data[21]);
+
+                                localStorage.setItem("userId", id);
+                                
+                            },
+                            error: function (error) {
+                                console.log("Error:", error);
+                            }
+                        });
+                    }
+                }
+           
+           
+        });
+
+        
+    </script>
+    </body>
+</html>
