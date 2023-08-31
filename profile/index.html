@@ -214,6 +214,7 @@
                                 $("#tenvochong").text(data[21]);
 
                                 localStorage.setItem("userId", id);
+                                $('title').text("Formosa | Profile " + data[0] + " - " + data[1]);
                                 
                             },
                             error: function (error) {
