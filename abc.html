@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add any necessary CSS or other head content here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+
+<button onclick="exportToExcel()">Xuất Excel</button>
+
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>25</td>
+      <td>New York</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>30</td>
+      <td>San Francisco</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  function exportToExcel() {
+    var table = document.getElementById("myTable");
+    var wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
+    var wbout = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+    var blob = new Blob([wbout], { type: "application/octet-stream" });
+    saveAs(blob, "myExcelFile.xlsx");
+  }
+</script>
+
+</body>
+</html>

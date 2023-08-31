@@ -13,6 +13,8 @@
             <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.vi.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
             <style>
                 .hidden {
                     display: none;
@@ -31,7 +33,7 @@
             </style>
 
         </head>
-    <body class="bg-dark text-light"  onclick="setData()">
+    <body class="bg-dark text-light">
         <div class="container-xl mt-5 shadow-lg p-3 mb-5  box-shadow ">
             <div class="row justify-content-center">
                   <div class="shadow-sm p-3 mb-1  rounded form-group d-flex">
@@ -42,7 +44,7 @@
             <table class="table table-bordered border-primary my-2 hidden bg-dark text-light" id="data">
                 <tbody>
                   <tr>
-                      <th scope="row" colspan="2" class="text-center bg-dark  text-light" id="name-id"></th>
+                      <th scope="row" colspan="2" class="text-center bg-dark  text-light" id="name-id" onclick="downloadFile()"></th>
                 </tr>
                 <tr class="bg-secondary">
                     <th scope="row" class="text-center">Họ tên tiếng Trung</th>
@@ -177,7 +179,7 @@
                     let id = $("#userId").val();
 
                     if (id !== "") {
-                        $("#name-id").text(id);
+                        $("#name-id").text(id + '🔽');
                         let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s10/${id}`;
 
                         $("#loading").removeClass("hidden");
@@ -242,9 +244,17 @@
                         });
                     }
                 }
-           
-           
         });
+
+        function downloadFile() {
+            let userId = $("#userId").val();
+            let nameByUserId = userId + '_profile.xlsx';
+            let table = document.getElementById("data");
+            let wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
+            let wbout = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+            let blob = new Blob([wbout], { type: "application/octet-stream" });
+            saveAs(blob, nameByUserId);
+        }
 
         
     </script>
