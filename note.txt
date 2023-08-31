@@ -1,0 +1,57 @@
+Hiện thị mấy cái loading
+Có class hidden là ẩn
+
+$(document).ready(function () {
+
+            let localStorage_userId = localStorage.getItem("userId");
+            $("#userId").val(localStorage_userId);
+            setData();
+            function setData() {
+                let id = $("#userId").val();
+                let year = $("#datepicker").val();
+
+                if (id !== "" && year !== "") {
+                    $("#name-id").text(id);
+                    let link = "https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s16/" + id + "vkokv" + year.split("-")[1] + "-" + year.split("-")[0];
+                    
+                    $("#loading").removeClass("hidden");
+                    $("#loading-text").removeClass("hidden");
+                    $("#messager").addClass("hidden");
+                    $("#data").addClass("hidden");
+
+                    $.ajax({
+                        url: CONFIG.path_api,
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            "link": link
+                        },
+                        success: function (data) {
+                            $("#loading").addClass("hidden");
+                            $("#loading-text").addClass("hidden");
+                            
+                            if (data.length <= 10) {
+                                $("#data").addClass("hidden");
+                                $("#messager").removeClass("hidden");
+                                return;
+                            }
+                            set data
+
+                        },
+                        error: function (error) {
+                            console.error("Error:", error);
+                            $("#data").addClass("hidden");
+                            $("#messager").removeClass("hidden");
+                            $("#loading").addClass("hidden");
+                            $("#loading-text").addClass("hidden");
+                        },
+                        
+                    });
+                } else {
+                    $("#data").addClass("hidden");
+                    $("#messager").removeClass("hidden");
+                    $("#loading").addClass("hidden");
+                    $("#loading-text").addClass("hidden");
+
+                }
+            }
