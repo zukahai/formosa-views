@@ -24,6 +24,7 @@ async function setData() {
                 if (data.length <= 1) {
                     $("#data").addClass("hidden");
                     $("#messager").removeClass("hidden");
+                    resolve();
                     return;
                 }
                 $("#data").removeClass("hidden");
@@ -54,11 +55,13 @@ async function setData() {
                 $("#sdtll2").text(data[20]);
                 $("#tenvochong").text(data[21]);
 
-                localStorage.setItem("userId", id);
-                $('title').text("Formosa | Profile " + data[0] + " - " + data[1]);
+                downloadFile();
+                resolve();
                 
             },
             error: function (error) {
+                resolve();
+                
                 console.log("Error:", error);
                 $("#data").addClass("hidden");
                 $("#messager").removeClass("hidden");
@@ -86,14 +89,15 @@ async function crawler() {
     console.log('crawler');
     let prefix = 'VNW00';
 
-    for (let id = 14737; id <= 14740; id++) {
-        let userId = prefix + id;
+    for (let id = 0; id <= 14745; id++) {
+        let paddedId = String(id).padStart(5, '0');
+        let userId = prefix + paddedId;
+        $('title').text(userId);
 
         $("#userId").val(userId);
-try {
+        try {
             await setData();
             console.log('id: ' + id);
-            await downloadFile();
         } catch (error) {
             console.log('Error:', error);
         }
@@ -102,4 +106,4 @@ try {
     console.log('End crawler');
 }
 
-crawler();
+$("#crawl").click(crawler);
