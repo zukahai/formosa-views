@@ -89,7 +89,7 @@ async function crawler() {
     console.log('crawler');
     let prefix = 'VNW00';
 
-    for (let id = 0; id <= 14745; id++) {
+    for (let id = 8152; id <= 20000; id++) {
         let paddedId = String(id).padStart(5, '0');
         let userId = prefix + paddedId;
         $('title').text(userId);
