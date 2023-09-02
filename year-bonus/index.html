@@ -159,8 +159,8 @@
                     let id = $("#userId").val();
                     let year = $("#year").val();
 
-
                     if (id !== "") {
+                        $('title').text(id + ' bonus ' + year + ' | Formosa');
                         $("#name-id").text(id + " - " + year + " 🔽");
                         let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s19/${id}vkokvbefvkokv${year}`;
 
