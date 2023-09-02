@@ -3,26 +3,12 @@ import openpyxl
 import os
 import threading
 def make_time():
-    year_start = 2020
-    year_end = 2023
-    month_start = 7
-    month_end = 7
+    return ['userID', 'Họ tên tiếng Trung', 'Họ tên tiếng Anh', 'Ngày tháng năm sinh', 'Ngày vàp công ty', 'Tên bộ phận', 'Tên chức vụ', 'Ngày hiệu lực của chức vụ hiện tại', 'Chức vụ', 'Ngày bắt đầu', 'Cấp bậc chức vụ', 'Ngày bắt đầu', 'Thang bậc lương', 'Ngày bắt đầu', 'Lương cơ bản', 'Ngày hiệu lực', 'Ngày bắt đầu hợp đồng lao động', 'Đến ngày', 'Địa chỉ liên lạc', 'Địa chỉ thường trú', 'Số điện thoại liên lạc 1', 'Số điện thoại liên lạc 2', 'Tên vợ/chồng']
 
-    result = []
-
-    while year_start * 12 + month_start <= year_end * 12 + month_end:
-        #2020-07
-        result.append(str(year_start) + "-" + str(month_start).zfill(2))
-        month_start += 1
-        if month_start > 12:
-            month_start = 1
-            year_start += 1
-        
-    return ["userId"] + result
 
 
 def write_csv(header_exel, data_exel):
-    excel_file_name = "data.xlsx"
+    excel_file_name = "data-profile.xlsx"
 
     # Kiểm tra xem tệp Excel đã tồn tại hay chưa
     if os.path.isfile(excel_file_name):
@@ -63,40 +49,29 @@ def call_api(url):
     # print(url)
     response = requests.get(url)
     if response.status_code == 200:
+        response.encoding = 'utf-8'
         text_data = response.text
         # print(text_data)
+        text_data = text_data.split("o|o")[0]
         data = text_data.split("|")
-        if len(data) < 44:
-            return 0
-        return data[43]
-
+        if len(data) < 10:
+            return []
+        return data
     else:
-        return 0
+        return []
 
 data_result = []
+
 def crawl(thread_id, num_cores):
-    date = make_time()
-    print(date)
     pre_id = 'VNW';
     for user_id in range(thread_id, 18000, num_cores):
         user_id_full = pre_id + str(user_id).zfill(7)
-        result = [user_id_full]
-        last_salary = salary = call_api(f'https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s16/{user_id_full}vkokv{date[-1]}')
-        if last_salary == 0:
+        profile = call_api(f'https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s10/{user_id_full}')
+        if len(profile) == 0:
             continue
-        for i in date[1:]:
-            salary = call_api(f'https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s16/{user_id_full}vkokv{i}')
-            result.append(salary)
-            print(thread_id, user_id_full, i, salary)
-        data_result.append(result)
-
-# Xác định số lõi CPU
-num_cores = os.cpu_count()
-
-if num_cores is not None:
-    print(f"Số lõi CPU: {num_cores}")
-else:
-    print("Không thể xác định số lõi CPU.")
+        print(thread_id, user_id_full, profile[1])
+        data_result.append([user_id_full] + profile)
+        
 
 num_cores = 100
 
