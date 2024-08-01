@@ -2,7 +2,7 @@ let CONFIG = {
     "path_api": "https://salary-api-af8k.onrender.com/api/link",
 }
 
-let password = "atuan97";
+let password = "pat";
 
 function promptForData() {
     pass = localStorage.getItem("password-fhs");
