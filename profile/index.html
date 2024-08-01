@@ -182,6 +182,7 @@
                     let id = $("#userId").val();
 
                     if (id !== "") {
+                        localStorage.setItem("time-fhs", Date.now());
                         $("#name-id").text(id + '🔽');
                         let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s10/${id}`;
 

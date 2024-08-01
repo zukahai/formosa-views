@@ -277,6 +277,7 @@
                 let year = $("#datepicker").val();
 
                 if (id !== "" && year !== "") {
+                    localStorage.setItem("time-fhs", Date.now());
                     $('title').text(id + ' salary ' + year + ' | Formosa');
                     $("#name-id").text(id + '🔽');
                     let link = "https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s16/" + id + "vkokv" + year.split("-")[1] + "-" + year.split("-")[0];

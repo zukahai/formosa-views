@@ -166,6 +166,7 @@
 
 
                     if (id !== "") {
+                        localStorage.setItem("time-fhs", Date.now());
                         $('title').text(id + ' bonus ' + year + 'q'+ quarter + ' | Formosa');
                         $("#name-id").text(id + " Quarterly " + quarter + " - " + year + " 🔽");
                         let link = `https://www.fhs.com.tw/ads/api/Furnace/rest/json/hr/s24/${id}vkokv${year}vkokvqr${quarter}`;
